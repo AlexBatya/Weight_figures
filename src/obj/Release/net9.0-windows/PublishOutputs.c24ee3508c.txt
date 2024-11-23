@@ -1,0 +1,5 @@
+C:\Users\user\Desktop\build\test.exe
+C:\Users\user\Desktop\build\test.dll
+C:\Users\user\Desktop\build\test.deps.json
+C:\Users\user\Desktop\build\test.runtimeconfig.json
+C:\Users\user\Desktop\build\test.pdb
