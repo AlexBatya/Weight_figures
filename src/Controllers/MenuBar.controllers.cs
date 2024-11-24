@@ -8,6 +8,7 @@ namespace MyApp.Controllers // Пространство имен для логи
 {
   public class MainController {
     private readonly Control _view;
+    private DriveForm? _driveForm; // Поле для хранения ссылки на окно
     // Поле для хранения ссылки на главное окно. Контроллер будет взаимодействовать с этим окном.
     //
     public FileData? FileData { get; private set; }
@@ -56,11 +57,16 @@ namespace MyApp.Controllers // Пространство имен для логи
     }
 
     public void ShowDrive(object? sender, EventArgs e){
-      var driveForm = new DriveForm();
-      // Создаем экземпляр окна "Производная".
-
-      driveForm.ShowDialog();
-      // Показываем окно в модальном режиме (пользователь должен закрыть его перед возвращением к основному окну).
+      if (_driveForm == null || _driveForm.IsDisposed) {
+        // Если окно не создано или было закрыто, создаем новое
+        _driveForm = new DriveForm();
+        _driveForm.FormClosed += (s, args) => _driveForm = null; // Сбрасываем ссылку при закрытии окна
+        _driveForm.Show();
+      } 
+      else {
+          // Если окно уже открыто, активируем его
+          _driveForm.Activate();
+      }
     }
 
   }

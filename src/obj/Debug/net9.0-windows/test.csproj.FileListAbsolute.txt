@@ -31,3 +31,4 @@ C:\Users\user\Desktop\test\src\obj\Debug\net9.0-windows\refint\test.dll
 C:\Users\user\Desktop\test\src\obj\Debug\net9.0-windows\test.pdb
 C:\Users\user\Desktop\test\src\obj\Debug\net9.0-windows\test.genruntimeconfig.cache
 C:\Users\user\Desktop\test\src\obj\Debug\net9.0-windows\ref\test.dll
+C:\Users\user\Desktop\test\src\obj\Debug\net9.0-windows\test.sourcelink.json
