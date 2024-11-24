@@ -56,6 +56,14 @@ namespace MyApp.Controllers // Пространство имен для логи
       // Показываем окно в модальном режиме (пользователь должен закрыть его перед возвращением к основному окну).
     }
 
+    public void ShowSettings(object? sender, EventArgs e) {
+      var settingsForm = new SettingsForm();
+      // Создаем экземпляр окна "О программе".
+
+      settingsForm.Show();
+      // Показываем окно в модальном режиме (пользователь должен закрыть его перед возвращением к основному окну).
+    }
+
     public void ShowDrive(object? sender, EventArgs e){
       if (_driveForm == null || _driveForm.IsDisposed) {
         // Если окно не создано или было закрыто, создаем новое

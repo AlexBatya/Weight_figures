@@ -17,11 +17,13 @@ namespace MyApp.Views {
 
       // Меню "Файл"
       var fileMenu = new ToolStripMenuItem("Файл"){Font = new Font("Comic Sans MS", 8, FontStyle.Italic)};
-      var openMenuItem = new ToolStripMenuItem("Открыть", null, _controller.OpenFile){ShortcutKeys = Keys.Control | Keys.C, Font = new Font("Comic Sans MS", 8, FontStyle.Italic)};
+      var openMenuItem = new ToolStripMenuItem("Открыть", null, _controller.OpenFile){ShortcutKeys = Keys.Control | Keys.C};
+      var settingsMenuItem = new ToolStripMenuItem("Настройки", null, _controller.ShowSettings){ShortcutKeys = Keys.Control | Keys.S};
       var exitMenuItem = new ToolStripMenuItem("Выход", null, _controller.ExitApp){ShortcutKeys = Keys.Control | Keys.W};
 
       fileMenu.DropDownItems.Add(openMenuItem);
       fileMenu.DropDownItems.Add(new ToolStripSeparator());
+      fileMenu.DropDownItems.Add(settingsMenuItem);
       fileMenu.DropDownItems.Add(exitMenuItem);
 
       // Меню "Дополнительно"
