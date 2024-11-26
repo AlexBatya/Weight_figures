@@ -7,11 +7,12 @@ using MyApp.Models; // Подключение пространства имен 
 namespace MyApp.Controllers {
 
   public class FileController {
-    private readonly Control _view;
+    private readonly Form _view;
 
     public FileData? FileData { get; private set; }
+    public string fileNamePath { get; private set;}
 
-    public FileController(Control view){
+    public FileController(Form view){
       _view = view ?? throw new ArgumentNullException(nameof(view));
     }
 
@@ -30,13 +31,17 @@ namespace MyApp.Controllers {
           // Загружаем данные в модель с помощью сервиса
           FileServices.ReadXmlFile(openFileDialog.FileName, fileData);
 
+          this.fileNamePath = Path.GetFileName(openFileDialog.FileName);
+
+          _view.Text = $"Scales_figures - {fileNamePath}";
+
           // Теперь можно использовать fileData в дальнейшем, например, передать в представление
           Console.WriteLine("StatW: " + string.Join(", ", fileData.StatW));
 
         }
         catch (Exception ex)
         {
-          Console.WriteLine($"Ошибка: {ex.Message}");
+          MessageBox.Show($"Ошибка при загрузке файла: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
       }
     }

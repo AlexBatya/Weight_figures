@@ -7,10 +7,10 @@ namespace MyApp.Views {
     private readonly Controllers.MainController _controller;
     private readonly Controllers.FileController _fileController;
 
-    public MenuBar() {
+    public MenuBar(Controllers.FileController fileController) {
       // Инициализация контроллеров
       _controller = new Controllers.MainController(this);
-      _fileController = new Controllers.FileController(this);
+      _fileController = fileController;
 
       // Инициализация меню
       InitializeMenu();
@@ -25,7 +25,7 @@ namespace MyApp.Views {
 
       // Меню "Файл"
       var fileMenu = new ToolStripMenuItem("Файл") { Font = GetMenuFont() };
-      var openMenuItem = new ToolStripMenuItem("Открыть", null, _fileController.OpenFile) { ShortcutKeys = Keys.Control | Keys.O };
+      var openMenuItem = new ToolStripMenuItem("Открыть", null, _fileController.OpenFile) { ShortcutKeys = Keys.Control | Keys.C };
       var settingsMenuItem = new ToolStripMenuItem("Настройки", null, _controller.ShowSettings) { ShortcutKeys = Keys.Control | Keys.S };
       var exitMenuItem = new ToolStripMenuItem("Выход", null, _controller.ExitApp) { ShortcutKeys = Keys.Control | Keys.W };
 

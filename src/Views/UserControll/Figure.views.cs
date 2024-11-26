@@ -30,7 +30,7 @@ namespace MyApp.Views
       };
 
       // Создаем модель графика
-      var plotModel = new PlotModel { Title = "График проезда", TitleFont = "Comic Sans MS" };
+      var plotModel = new PlotModel { Title = "", TitleFont = "Comic Sans MS" };
 
 
       plotModel.Axes.Add(new OxyPlot.Axes.LinearAxis
