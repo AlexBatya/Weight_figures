@@ -7,7 +7,7 @@ namespace MyApp.Controllers {
     private readonly Control _view;
 
     public KeyController(Control view){
-      _view = view;
+      _view = view ?? throw new ArgumentNullException(nameof(view));
     }
 
     public void OnKeyDown(object? sender, KeyEventArgs e) {

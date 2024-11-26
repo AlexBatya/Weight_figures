@@ -10,37 +10,10 @@ namespace MyApp.Controllers // Пространство имен для логи
     private readonly Control _view;
     private DriveForm? _driveForm; // Поле для хранения ссылки на окно
     // Поле для хранения ссылки на главное окно. Контроллер будет взаимодействовать с этим окном.
-    //
-    public FileData? FileData { get; private set; }
 
     public MainController(Control view) {
-      _view = view;
+      _view = view ?? throw new ArgumentNullException(nameof(view));
       // Сохраняем ссылку на переданное окно, чтобы можно было взаимодействовать с его элементами.
-    }
-
-    public void OpenFile(object sender, EventArgs e) {
-      var openFileDialog = new OpenFileDialog {
-        Filter = "XML Files|*.xml|All Files|*.*",
-        Title = "Выберите XML файл"
-      };
-
-      if (openFileDialog.ShowDialog() == DialogResult.OK) {
-        try {
-          // Создаем новый объект модели
-          var fileData = new FileData(new List<int>(), new List<int>(), new List<int>(),
-                                      new List<int>(), new List<bool>(), new List<int>(), "");
-
-          // Загружаем данные в модель с помощью сервиса
-          FileServices.ReadXmlFile(openFileDialog.FileName, fileData);
-
-          // Теперь можно использовать fileData в дальнейшем, например, передать в представление
-
-        }
-        catch (Exception ex)
-        {
-          Console.WriteLine($"Ошибка: {ex.Message}");
-        }
-      }
     }
 
     public void ExitApp(object? sender, EventArgs e) {

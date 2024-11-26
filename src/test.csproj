@@ -10,4 +10,8 @@
     <ApplicationIcon>C:/Users/user/Desktop/test/src/Assets/Img/icon.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="OxyPlot.WindowsForms" Version="2.1.0" />
+  </ItemGroup>
+
 </Project>

@@ -22,6 +22,7 @@ namespace MyApp.Views {
 
       this.KeyDown += new KeyEventHandler(_keyController.OnKeyDown);
       this.KeyPreview = true;
+
     }
 
   }
